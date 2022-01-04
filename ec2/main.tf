@@ -1,6 +1,6 @@
 #Declaring AWS Provider and credentials
 provider "aws" {
-  region     = "us-west-1"
+  region     = "us-east-2"
   access_key = "AKIARDDGK2ZKNSO2JLN5"
   secret_key = "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"
 }
@@ -42,24 +42,5 @@ output "Application_IP" {
 }
 output "Application_instance_id" {
   value = aws_instance.application.id
-}
-#######################################################
-#Creating db
-resource "aws_instance" "db" {
- ami = "ami-00694521ba320ed02"
- instance_type = "t3.xlarge"
- key_name = var.keyname
- vpc_security_group_ids = [var.windows_security_group]
- subnet_id = var.privatesubnetid
- 
- tags = {
-  Name = "db"
- }
-}
-output "db_IP" {
-  value = aws_instance.db
-}
-output "db_instance_id" {
-  value = aws_instance.db.id
 }
 ########################################################
