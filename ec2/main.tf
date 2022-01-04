@@ -7,7 +7,7 @@ provider "aws" {
 #######################################################
 #Creating Webserver
 resource "aws_instance" "webserver" {
- ami = "ami-053ac55bdcfe96e85"
+ ami = "ami-0fb653ca2d3203ac1"
  instance_type = "t2.micro"
  key_name = var.keyname
  vpc_security_group_ids = [var.linux_security_group]
@@ -27,7 +27,7 @@ output "Webserver_instance_id" {
 #######################################################
 #Creating Application
 resource "aws_instance" "application" {
- ami = "ami-0cf4a2d03d1a3d62c"
+ ami = "ami-0c95aae83dc5a60ac"
  instance_type = "t2.micro"
  key_name = var.keyname
  vpc_security_group_ids = [var.windows_security_group]
